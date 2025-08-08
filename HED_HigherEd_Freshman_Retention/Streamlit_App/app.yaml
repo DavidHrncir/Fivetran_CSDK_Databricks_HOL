@@ -1,0 +1,42 @@
+command: ["streamlit", "run", "app.py", "--server.port", "8000", "--server.address", "0.0.0.0"]
+env:
+  - name: UC_SCHEMA
+    value: ''
+  - name: DATABRICKS_SQL_HTTP_PATH
+    value: '/sql/1.0/warehouses/f2b89116ed7a85ea'
+  - name: DATABRICKS_SERVING_ENDPOINT_URL
+    value: 'https://dbc-dfd1c87b-4112.cloud.databricks.com/serving-endpoints/databricks-claude-sonnet-4/invocations'
+  - name: DATABRICKS_ENDPOINT_2_URL
+    value: 'https://dbc-dfd1c87b-4112.cloud.databricks.com/serving-endpoints/databricks-claude-3-7-sonnet/invocations'
+  - name: DATABRICKS_ENDPOINT_3_URL
+    value: 'https://dbc-dfd1c87b-4112.cloud.databricks.com/serving-endpoints/databricks-meta-llama-3-1-8b-instruct/invocations'
+  - name: DATABRICKS_ENDPOINT_4_URL
+    value: 'https://dbc-dfd1c87b-4112.cloud.databricks.com/serving-endpoints/databricks-meta-llama-3-3-70b-instruct/invocations'
+  - name: DATABRICKS_ENDPOINT_5_URL
+    value: 'https://dbc-dfd1c87b-4112.cloud.databricks.com/serving-endpoints/databricks-gemma-3-12b/invocations'
+  - name: DATABRICKS_ENDPOINT_6_URL
+    value: 'https://dbc-dfd1c87b-4112.cloud.databricks.com/serving-endpoints/databricks-llama-4-maverick/invocations' 
+  - name: DATABRICKS_TOKEN
+    valueFrom: secret
+  - name: DATABRICKS_HOST
+    value: 'https://dbc-dfd1c87b-4112.cloud.databricks.com/'
+  - name: UC_CATALOG
+    value: 'ts-mds-catalog-lab'
+  - name: UC_TABLE
+    value: 'hed_data'
+  - name: DBX_ENDPOINT
+    value: 'databricks-claude-sonnet-4'
+  - name: DBX_ENDPOINT_2
+    value: 'databricks-claude-3-7-sonnet'
+  - name: DBX_ENDPOINT_3
+    value: 'databricks-meta-llama-3-1-8b-instruct'
+  - name: DBX_ENDPOINT_4
+    value: 'databricks-meta-llama-3-3-70b-instruct'
+  - name: DBX_ENDPOINT_5
+    value: 'databricks-gemma-3-12b'
+  - name: DBX_ENDPOINT_6
+    value: 'databricks-llama-4-maverick'
+resources:
+  secret:
+    - name: 'databricks-token-secret'
+      key: secret
