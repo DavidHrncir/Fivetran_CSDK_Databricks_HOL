@@ -23,7 +23,7 @@ env:
   - name: UC_CATALOG
     value: 'ts-mds-catalog-lab'
   - name: UC_TABLE
-    value: 'cpg_data'
+    value: 'cpg_records'
   - name: DBX_ENDPOINT
     value: 'databricks-claude-sonnet-4'
   - name: DBX_ENDPOINT_2

@@ -105,25 +105,66 @@ You should receive a message stating the connection was deployed successfully al
 
 ## Step 4: Create a Streamlit Application in Databricks
 
-### 4.1 Copy the Streamlit Data App Code
-Open the **Streamlit_App** folder in this git repo on the other GitHub browser tab.  Click the **app-agent.py** file and click the copy icon in the upper right.
+### 4.1 Create the Application Compute
+Databricks offers a variety of application types: Dash, Flask, Gradio, Shiny, Streamlit, and Node.js. Today we will use the Streamlit version. We need to create a compute instance to run our Streamlit application.
+1. In the Databricks UI, left navigation panel, click on **Compute**.
+2. Click on the **Apps** tab.
+3. Click the **Create app** button on the right side of the screen.
+4. Click the **Create a custom app** option at the top of the list.
+5. For the **App name** field, enter an app name that is unique such as [initials][birth month][birthday][fts]-app. ex. **dh0816fts-app** The **Description** can be left blank.
+6. <ins>VERY IMPORTANT</ins>, click the **Next: Configure** button and <ins>NOT</ins> the **Create app** button.
+7. Under **App resources** click **+Add resource**, choose **Secret**, and fill in the fields as follows:
+   - For **Secret**, choose **databricks-app-secrets**.
+   - For **Select secret key**, choose **databricks-token**.
+   - **Permission** should stay as **can read**.
+   - **Resource key** should stay as **secret**.
+8. Now click **Create app**.  You will see a screen stating that the compute is starting. This process will take 2-3 minutes to create the compute to run our Streamlit application. While the compute is being created, we will set up our application code.
 
-### 4.2 Create and Deploy the Streamlit in Databricks Gen AI Data App
-1. Switch to the Databricks tab in your browser.
-2. Click on **Projects** in the left navigation panel.
-3. Click on **Streamlit**.
-4. Click the refresh icon in your browser to refresh the schemas.
-5. Click the **+ Streamlit App** blue button in the upper right corner.
-6. Configure your app:
-   - App title: **[your initials]-LogLynx**
-   - Database: Select **HOL_DATABASE_1**
-   - Schema: Select your schema which is the same name as your connector (example: dh0816fts) the schema created by your Fivetran connector.
-7. In the Streamlit Editor that appears (left side of the Streamlit UI), select all text (Command+A or Control+A) and delete it.
-8. Paste the copied Streamlit application code into the empty editor (Command+V or Control+V).
-9. Click the blue **Run** button in the upper right corner.
-10. Close the editor by clicking the middle icon in the bottom left navigation.
+### 4.2 Create the Vertical-Based Folder in Your Databricks Workspace
+1. While still in the Databricks tab, click the **Workspace** item in the left navigation panel (top-left); this will open a middle navigation panel.
+2. In the middle navigation panel, expand **Workspace**, then expand **Users**.
+3. Your login name is at the top of the list by default in the user list panel; click on your login name.
+4. In the upper right portion of your screen, click **Create** and choose **Folder** (Note: You may also right-click in the whitespace and choose Create Folder as well.)
+5. Enter this vertical's abbreviation, **fts**, as the name of the folder and click **Create**.
+6. This folder will automatically become the current folder as you will see at the top of the screen now states **fts**.
 
-## 4.3 Explore the Streamlit in Databricks Gen AI Data App
+### 4.3 Create Empty File Placeholders In Your Workspace Folder
+In the **fts** folder you just created, create 3 empty files by either right-clicking or using the **Create** button in the upper right for the first file. <ins>Once the first file is created, you can simply click the **+** sign in the tabbed view to create new files.</ins>
+   - **app.py**
+   - **app.yaml**
+   - **requirements.txt**
+
+### 4.4 Copy File Text from Git Repo to Workspace Files
+1. In the vertical project GitHub tab, expand the **Streamlit App** folder
+2. Click the **app.py** file.
+3. Click the **copy** icon in the upper right corner of the text window.
+4. In the Databricks workspace, click the **app.py** file and paste the contents into that file.
+5. The file will auto-save.
+6. Do the same steps 2-5 above for the **app.yaml** and **requirements.txt** files pasting the contents into their respected files.
+
+### 4.5 Update the app.yaml with Schema
+The **app.yaml** file is mostly set up and ready to use.  The only property we need to update is the **UC_SCHEMA value** which is set as the first property in the **env** section. This is done because each one of us created our own schema in the catalog.
+1. Find the name of your Fivetran connection. That is your schema name.  If you do not recall the name of your connection, you can either use the Fivetran Connections UI to locate your connection name, or use the catalog explorer in the middle navigation panel.
+2. Fill in the **UC_SCHEMA value** with your schema/connection name between the two single quotes. An example is below.
+```bash
+  - name: UC_SCHEMA
+    value: 'dh0816fts'
+```
+
+With that our application is ready to be built in Databricks Apps.
+
+### 4.6 Deploy the Streamlit App using Our Code Folder
+1. Click **Compute** in the left navigation panel.
+2. Click the **Apps** tab.
+3. Find the app you created using your initials and click on the app.
+4. The **Deploy** button in the upper right should now be available; click the **Deploy** button.
+5. You will be prompted to enter your source code path. Click the icon. You should be directly at the **fts** folder. Click the **fts** folder. If by chance this is not the default, simply choose **Workspace, Users, [your login], fts**. <ins>Note that you should see the 3 files we created earlier.</ins>
+6. Click the **Select** button.
+7. Click the **Deploy** button.
+8. The deployment process will start and usually takes about 30-180 seconds to install, create the app, and make the URL available for use.
+9. When ready, you will see a green dot stating **Running** at the top of the screen.  Click the URL in that location to launch your application in a new browser tab.
+
+## 4.7 Explore the Streamlit in Databricks Gen AI Data App
 The LogLynx data app should now be running with the following sections:
 - **Metrics**: View failure rates, maintenance costs, downtime hours, and time savings metrics with operational visualizations
 - **AI Insights**: Generate AI-powered analysis of the oil and gas field operations data across four focus areas
