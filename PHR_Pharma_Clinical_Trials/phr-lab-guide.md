@@ -23,23 +23,23 @@ The Pharmaceutical PHR custom connector should fetch clinical trial and patient 
 ***PAUSE: Let's quickly walk through the GitHub interface.***
 
 ## Step 1: Set up the Development Environment
-1. Create the project directory. On a Windows or Mac, create the **rdp** folder in a folder that does not reside under a system folder such as "My Documents".
+1. Create the project directory. On a Windows or Mac, create the **phr** folder in a folder that does not reside under a system folder such as "My Documents".
 
 2. Download the project files from the git repo (easiest way):
-   - **rdp_manual.env**: Environment variables loading file
+   - **phr_manual.env**: Environment variables loading file
    - **configuration.json**: Configure your API credentials and settings
    - **connector.py**: Our connector code for this vertical
    - **requirements.txt**: Python requirements file
-3. Once the above files are downloaded copy/move them to the newly created **rdp** folder
+3. Once the above files are downloaded copy/move them to the newly created **phr** folder
 4. Open this folder in your development IDE or in a terminal window
 5. **Activate your Python virtual environment in your terminal window**
 
 6. Set up our environment variables.
-   - Edit the **rdp_manual.env** file.  These values will become environment variables in your current terminal session (meaning if you close the terminal by accident, you will need to re-apply these environment variables). NOTE: If these environment variables are not present, you will be prompted to enter them manually during debugging and deployment (added complexity).  Note that the **FIVETRAN_CONFIGURATION** and **FIVETRAN_PYTHON_VERSION** values are already set.  We need to update the first 3 values now.
+   - Edit the **phr_manual.env** file.  These values will become environment variables in your current terminal session (meaning if you close the terminal by accident, you will need to re-apply these environment variables). NOTE: If these environment variables are not present, you will be prompted to enter them manually during debugging and deployment (added complexity).  Note that the **FIVETRAN_CONFIGURATION** and **FIVETRAN_PYTHON_VERSION** values are already set.  We need to update the first 3 values now.
       - **FIVETRAN_API_KEY**: We need to be in our Fivetran UI, then click your name in the lower left nav panel, then click API Key, and click Generate New API Key.  Copy the ***base64 encoded key***, remove the default text including the brackets and paste that value. If you make a mistake, you can generate a new key as it will overwrite the previous one.
       - **FIVETRAN_DESTINATION_NAME**:  The instructor will place the value in the webinar chat area.  Copy and paste from there.
-      - **FIVETRAN_CONNECTION_NAME**: This must be all lower case letters, numbers, and underscores.  Since we are sharing a common environment, the <ins>connection names must be unique</ins>.  An option that works well here is, your initials followed by your birth month and day followed by rdp.  Example: **dh0816rdp** This value will be the connector name in Fivetran as well as the schema name in Databricks.  Ensure you save the **rdp_manual.env** file.
-7. Copy all 5 values from the rdp_manual.env file and paste them into your terminal and press enter/return.
+      - **FIVETRAN_CONNECTION_NAME**: This must be all lower case letters, numbers, and underscores.  Since we are sharing a common environment, the <ins>connection names must be unique</ins>.  An option that works well here is, your initials followed by your birth month and day followed by phr.  Example: **dh0816phr** This value will be the connector name in Fivetran as well as the schema name in Databricks.  Ensure you save the **phr_manual.env** file.
+7. Copy all 5 values from the phr_manual.env file and paste them into your terminal and press enter/return.
    - To view/verify the values are applied in Windows:
    ```bash
    set
