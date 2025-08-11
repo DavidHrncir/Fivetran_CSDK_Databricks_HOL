@@ -145,9 +145,9 @@ DATABRICKS_HTTP_PATH = os.environ["DATABRICKS_SQL_HTTP_PATH"]
 DATABRICKS_TOKEN = os.environ["DATABRICKS_TOKEN"]
 
 # Define Unity Catalog and Serving Endpoints from environment variables
-UC_CATALOG = os.environ.get("UC_CATALOG", "ts-catalog-demo")
-UC_SCHEMA = os.environ.get("UC_SCHEMA", "agr_connector_dbx")
-UC_TABLE = os.environ.get("UC_TABLE", "agr_records")
+UC_CATALOG = os.environ.get("UC_CATALOG")
+UC_SCHEMA = os.environ.get("UC_SCHEMA")
+UC_TABLE = os.environ.get("UC_TABLE")
 DBX_ENDPOINT = os.environ.get("DBX_ENDPOINT", "databricks-claude-sonnet-4")
 DBX_ENDPOINT_2 = os.environ.get("DBX_ENDPOINT_2", "databricks-claude-opus-4")
 DBX_ENDPOINT_3 = os.environ.get("DBX_ENDPOINT_3", "databricks-claude-3-7-sonnet")
