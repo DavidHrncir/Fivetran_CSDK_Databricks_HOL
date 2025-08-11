@@ -147,7 +147,7 @@ With that our application is ready to be built in Databricks Apps.
 2. Click the **Apps** tab.
 3. Find the app you created using your initials and click on the app.
 4. The **Deploy** button in the upper right should now be available; click the **Deploy** button.
-5. You will be prompted to enter your source code path. Click the icon. You should be directly at the **hed** folder. Click the **hed** folder. If by chance this is not the default, simply choose **Workspace, Users, [your login], hed**. <ins>Note that you should see the 3 files we created earlier.</ins>
+5. You will be prompted to enter your source code path. Click the folder icon. You should be directly at the **hed** folder. Click the **hed** folder. If by chance this is not the default, simply choose **Workspace, Users, [your login], hed**. <ins>Note that you should see the 3 files we created earlier.</ins>
 6. Click the **Select** button.
 7. Click the **Deploy** button.
 8. The deployment process will start and usually takes about 30-180 seconds to install, create the app, and make the URL available for use.
