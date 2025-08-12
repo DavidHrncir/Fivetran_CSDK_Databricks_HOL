@@ -84,7 +84,7 @@ If you are a current Fivetran customer, you will notice that you will be taken r
 
 ## Databricks
 
-1. Login to the provisioned account. **[Fivetran provisioned Databricks account](https://accounts.cloud.databricks.com/login?account_id=c7e4e80f-925e-4a24-8fb4-34d7b876c698)**.
+1. Login to the **[Fivetran provisioned Databricks account](https://accounts.cloud.databricks.com/login?account_id=c7e4e80f-925e-4a24-8fb4-34d7b876c698)**.
 2. Your Databricks user login Id will be the email address you used during registration.
 3. The Databricks account is MFA. So when you enter your email address to login, you will receive an email with a 6 character code.  Simply copy and paste the 6 character code into the MFA UI.
 -----
